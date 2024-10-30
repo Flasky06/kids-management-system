@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Child;
+use App\Models\School;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use function Laravel\Prompts\password;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +20,11 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'bony',
+            'email' => 'bony@gmail.com',
+            'password' => bcrypt('bony123')
         ]);
+
+        Child::factory()->count(170)->create();
     }
 }
